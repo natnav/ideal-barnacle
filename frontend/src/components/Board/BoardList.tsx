@@ -19,9 +19,9 @@ export default function BoardList({ onSelect }: Props) {
   const [description, setDescription] = useState('');
   const [color, setColor] = useState(BOARD_COLORS[0]);
 
-  const handleCreate = () => {
+  const handleCreate = async () => {
     if (!title.trim()) return;
-    const board = addBoard(title.trim(), description.trim(), color);
+    const board = await addBoard(title.trim(), description.trim(), color);
     setTitle('');
     setDescription('');
     setColor(BOARD_COLORS[0]);
